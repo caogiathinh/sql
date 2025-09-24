@@ -46,3 +46,5 @@ SELECT * FROM Num WHERE Numbr <= ALL(SELECT * FROM Num)
 SELECT * FROM Employees WHERE BirthDate <= ALL(SELECT BirthDate FROM Employees)
 --5. Đơn hàng nào có trọng lượng nặng nhất
 SELECT * FROM Orders WHERE Freight >= ALL(SELECT Freight FROM Orders)
+
+
