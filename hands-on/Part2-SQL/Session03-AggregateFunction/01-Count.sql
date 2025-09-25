@@ -145,11 +145,94 @@ GROUP BY ShipCountry
 HAVING COUNT(*) >= 100
 
 --13. Đếm xem có bao nhiêu mặt hàng có trong kho
+SELECT COUNT(*) FROM Products
 --14. Đếm xem có bao nhiêu lượt quốc gia đã mua hàng 
+SELECT COUNT(*) AS [No Orders] FROM Orders
 --15. Đếm xem có bao nhiêu quốc gia đã mua hàng (mỗi quốc gia đếm một lần)
+SELECT COUNT(DISTINCT ShipCity) AS [No Cities] FROM Orders
 --16. Đếm số lượng đơn hàng của mỗi quốc gia
+SELECT ShipCountry, COUNT(*) AS [No orders] FROM Orders GROUP BY ShipCountry
 --17. Quốc gia nào có từ 10 đơn hàng trở lên
+SELECT ShipCountry, COUNT(*) AS [No orders] FROM Orders 
+GROUP BY ShipCountry
+HAVING COUNT(*) >= 10
 --18. Đếm xem mỗi chủng loại hàng có bao nhiêu mặt hàng (bia rượu có 5 sp, thủy sản 10 sp)
+SELECT CategoryID, COUNT(*) [No Products] FROM Products 
+GROUP BY CategoryID
+
 --19. Trong 3 quốc gia A P M, quốc gia nào có nhiều đơn hàng nhất
---20. Quốc gia nào có nhiều đơn hàng nhất
+-- cách 1
+SELECT ShipCountry, COUNT(*) FROM Orders 
+WHERE ShipCountry IN ('UK', 'USA', 'France')
+GROUP BY ShipCountry
+HAVING COUNT(*) >= ALL(
+						SELECT COUNT(*) FROM Orders 
+						WHERE ShipCountry IN ('UK', 'USA', 'France') 
+						GROUP BY ShipCountry
+					   ) --USA
+
+-- cách 2
+SELECT ShipCountry, COUNT(*) AS OrderCount
+FROM Orders
+WHERE ShipCountry IN ('UK', 'USA', 'France')
+GROUP BY ShipCountry
+HAVING COUNT(*) = (
+					SELECT MAX([Total Orders])
+					FROM
+					  (
+						SELECT COUNT(*) AS [Total Orders]
+						FROM Orders
+						WHERE ShipCountry IN('UK', 'USA', 'France')
+						GROUP BY ShipCountry 
+					  ) AS [Totals]
+				  )
+
+--20. Quốc gia nào có nhiều đơn hàng nhất ? 
+-- Cách 1
+SELECT ShipCountry, COUNT(*) AS [Total Orders]
+FROM Orders 
+GROUP BY ShipCountry
+HAVING COUNT(*) = (
+					SELECT MAX([Total Orders])
+					FROM
+					  (
+						SELECT COUNT(*) AS [Total Orders]
+						FROM Orders
+						GROUP BY ShipCountry 
+					  ) AS [Total]
+				  )
+
+-- cách 2
+SELECT ShipCountry, COUNT(*) AS [Total Orders]
+FROM Orders 
+GROUP BY ShipCountry
+HAVING COUNT(*) >= ALL (
+					SELECT [Total Orders]
+					FROM
+					  (
+						SELECT COUNT(*) AS [Total Orders]
+						FROM Orders
+						GROUP BY ShipCountry 
+					  ) AS [Total]
+				  )
 --21. Thành phố nào có nhiều nhân viên nhất???
+--cách 1
+SELECT City, COUNT(*) AS [No Employees] FROM Employees 
+GROUP BY City 
+HAVING COUNT(*) >= ALL(
+						SELECT COUNT(*) AS [No Employees] 
+						FROM Employees 
+						GROUP BY City
+					  )
+
+--cách 2:
+SELECT City, COUNT(*) AS [No Employees] FROM Employees 
+GROUP BY City 
+HAVING COUNT(*) = (
+					SELECT MAX([No Employees])
+					FROM (
+						SELECT COUNT(*) AS [No Employees] 
+						FROM Employees 
+						GROUP BY City
+						) AS [EmplyeeeV2]
+					)

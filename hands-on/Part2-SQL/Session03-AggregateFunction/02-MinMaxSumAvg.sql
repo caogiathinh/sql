@@ -75,6 +75,7 @@ SELECT COUNT(*) FROM Orders
 WHERE Freight >= (
 					 SELECT AVG(Freight) FROM Orders
 				  )
-
 --chỉ những thằng lớn hơn trung bình thì mới đếm
+
+
 
