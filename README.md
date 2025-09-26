@@ -9,13 +9,41 @@ sql/
 ├── README.md
 └── hands-on/
     ├── Part2-SQL/
+    │   ├── Session01-BasicSelect/
+    │   │   ├── 01-SELECT only.sql
+    │   │   ├── 02-SELECT one table.sql
+    │   │   ├── 03-SELECT DISTINCT.sql
+    │   │   ├── 05-SELECT WHERE.sql
+    │   │   ├── 06-SELECT RANGE.sql
+    │   │   ├── 07-SELECT NULL.sql
+    │   │   ├── 08-SELECT LIKE.sql
+    │   ├── Session02-SubQuery/
+    │   │   ├── 03-All-ANY.sql
+    │   ├── Session04-JOIN/
+    │   │   ├── 01-Cartesian.sql
+    |   |   ├── 02-InnerJoin.sql    
     └── Part5-NF/
+        ├── 01-noNF.sql
+        
 ```
 
-- `README.md`: This file.
-- `hands-on/`: Main directory for practical exercises.
-  - `Part2-SQL/`: Contains exercises related to SQL basics and queries.
-  - `Part5-NF/`: Contains exercises related to normalization forms and database design.
+### Example `.sql` Files
+
+**Part2-SQL:** Focuses on SQL basics and query techniques.
+- `Session01-BasicSelect/01-SELECT only.sql`: Basic SELECT statement usage.
+- `Session01-BasicSelect/03-SELECT DISTINCT.sql`: Using DISTINCT to filter unique results.
+- `Session01-BasicSelect/05-SELECT WHERE.sql`: Filtering with WHERE clause.
+- `Session01-BasicSelect/06-SELECT RANGE.sql`: Using BETWEEN and IN for ranges.
+- `Session01-BasicSelect/08-SELECT LIKE.sql`: Pattern matching with LIKE.
+- `Session02-SubQuery/03-All-ANY.sql`: Subquery examples with ALL/ANY.
+- `Session04-JOIN/01-Cartesian.sql`: Demonstrates Cartesian joins.
+- `Session04-JOIN/02-InnerJoin.sql`: Demonstrates Inner joins.
+
+
+**Part5-NF:** Focuses on database normalization forms.
+- `01-noNF.sql`: Example of a table design with no normalization.
+
+> **Note:** This is a partial listing. For a complete and updated list, visit the [GitHub repository](https://github.com/caogiathinh/sql).
 
 ## Getting Started
 
@@ -24,10 +52,9 @@ sql/
    git clone https://github.com/caogiathinh/sql.git
    cd sql
    ```
-
 2. **Explore Exercises:**
    - Navigate to the `hands-on/` directory.
-   - Each part contains focused practice problems and examples.
+   - Each part contains focused practice problems and examples in `.sql` files.
 
 ## Contribution
 
