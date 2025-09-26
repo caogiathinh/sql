@@ -20,6 +20,8 @@ sql/
     │   ├── Session02-SubQuery/
     │   │   ├── 03-All-ANY.sql
     │   ├── Session04-JOIN/
+    │   │   ├── 00-ClubManagement.sql
+    │   │   ├── 00-StudentManagement.sql
     │   │   ├── 01-Cartesian.sql
     |   |   ├── 02-InnerJoin.sql    
     |   |   ├── 03-Outer.sql  
@@ -37,6 +39,8 @@ sql/
 - `Session01-BasicSelect/06-SELECT RANGE.sql`: Using BETWEEN and IN for ranges.
 - `Session01-BasicSelect/08-SELECT LIKE.sql`: Pattern matching with LIKE.
 - `Session02-SubQuery/03-All-ANY.sql`: Subquery examples with ALL/ANY.
+- `Session04-JOIN/00-ClubManagement.sql`: n-n relationship.
+- `Session04-JOIN/00-StudentManagement.sql`: 1-n relationship.
 - `Session04-JOIN/01-Cartesian.sql`: Demonstrates Cartesian joins.
 - `Session04-JOIN/02-InnerJoin.sql`: Demonstrates Inner joins.
 - `Session04-JOIN/03-Outer.sql`: Demonstrates Outer joins.
