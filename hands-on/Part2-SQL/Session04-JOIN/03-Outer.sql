@@ -48,3 +48,28 @@ SELECT * FROM VnDict e LEFT JOIN EnDict v
 -- OUTER JOIN SINH RA ĐỂ ĐẢM BẢO VIỆC KẾT NỐI GHÉP BẢNG
 -- DO BỊ MẤT MÁT DATA 
 -- DO INNER JOIN, JOIN = CHỈ TÌM CÁI CHUNG 2 BÊN 
+
+-- SAU KHI TÌM RA ĐƯỢC DATA CHUNG RIÊNG, TA CÓ QUYỀN FILTER TRÊN LOẠI 
+-- CELL NÀO ĐÓ, WHERE NHƯ BÌNH THƯỜNG
+
+-- 6. In ra bộ từ điển Anh Việt (anh làm chuẩn) của những con số
+-- từ 3 trở lên
+SELECT * FROM EnDict e LEFT JOIN VnDict v
+		 ON e.Nmbr = v.Nmbr
+		 WHERE e.Nmbr >= 3
+SELECT * FROM EnDict e LEFT JOIN VnDict v
+		 ON e.Nmbr = v.Nmbr
+		 WHERE v.Nmbr >= 3
+-- 7. In ra bộ từ điển Anh Việt Việt Anh của những con số
+-- từ 3 trở lên
+SELECT * FROM EnDict e FULL JOIN VnDict v
+		 ON e.Nmbr = v.Nmbr
+		 WHERE e.Nmbr >= 3 --toang mất só 5 của bên VN
+SELECT * FROM EnDict e FULL JOIN VnDict v
+		 ON e.Nmbr = v.Nmbr
+		 WHERE v.Nmbr >= 3 --có 5 mất 4
+
+SELECT * FROM EnDict e FULL JOIN VnDict v
+		 ON e.Nmbr = v.Nmbr
+		 WHERE v.Nmbr >= 3 OR e.Nmbr >= 3
+
