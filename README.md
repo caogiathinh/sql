@@ -22,6 +22,7 @@ sql/
     │   ├── Session04-JOIN/
     │   │   ├── 01-Cartesian.sql
     |   |   ├── 02-InnerJoin.sql    
+    |   |   ├── 03-Outer.sql  
     └── Part5-NF/
         ├── 01-noNF.sql
         
@@ -38,6 +39,7 @@ sql/
 - `Session02-SubQuery/03-All-ANY.sql`: Subquery examples with ALL/ANY.
 - `Session04-JOIN/01-Cartesian.sql`: Demonstrates Cartesian joins.
 - `Session04-JOIN/02-InnerJoin.sql`: Demonstrates Inner joins.
+- `Session04-JOIN/03-Outer.sql`: Demonstrates Outer joins.
 
 
 **Part5-NF:** Focuses on database normalization forms.
