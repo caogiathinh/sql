@@ -18,6 +18,9 @@ INSERT INTO EnDict VALUES(1, 'One')
 INSERT INTO EnDict VALUES(2, 'Two')
 INSERT INTO EnDict VALUES(3, 'Three')
 
+-- PHẦN NÀY THÊM CHO OUTER JOIN 
+INSERT INTO EnDict VALUES(4, 'Four')
+
 CREATE TABLE VnDict			--DDL: 1 nhánh của SQL
 (							--Data Defination Language
 	Nmbr int, 
@@ -28,6 +31,7 @@ SELECT * FROM VnDict
 INSERT INTO VnDict VALUES(1, N'Một')
 INSERT INTO VnDict VALUES(2, N'Hai')
 INSERT INTO VnDict VALUES(3, N'Ba')
+INSERT INTO VnDict VALUES(5, N'Năm')
 
 SELECT * FROM VnDict 
 SELECT * FROM EnDict
@@ -60,4 +64,5 @@ SELECT * FROM VnDict vn, EnDict en
 		 -- GHÉP CÓ CHỌN LỌC TÌM TƯƠNG QUAN CỘT/CELL ĐỂ GHÉP -> INNER JOIN/OUTER 
 								--EQUI JOIN 
 								--ĐA PHẦN GHÉP THEO TOÁN TỬ = 
-								--CÒN CÓ THỂ GÉP THEO > >= < <= =
+								--CÒN CÓ THỂ GHÉP THEO > >= < <= =
+
