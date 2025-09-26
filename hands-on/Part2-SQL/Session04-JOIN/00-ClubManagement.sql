@@ -65,5 +65,69 @@ INSERT INTO Registration(StudentID, ClubID) VALUES('SE2', 'CSG')
 INSERT INTO Registration(StudentID, ClubID) VALUES('SE3', 'SiTi')
 
 SELECT * FROM Registration
+SELECT * FROM Club
+SELECT * FROM Student
 
+-- 1. Liệt kê các sinh viên đang theo học 
+SELECT * FROM Student
+
+-- 2. Liệt kê các sinh viên đang theo học  kèm theo câu lạc bộ bạn ấy đang tham gia
+-- output 1: mẫ sv, tên sv, mã clb
+-- output 2: mẫ sv, tên sv, mã clb, tên clb
+
+SELECT s.StudentID, s.FirstName + ' ' + s.LastName AS [FullName], r.ClubID
+FROM Student s JOIN Registration r
+ON s.StudentID = r.StudentID 
+--!!! thiếu sinh 4,5 vì JOIN = 
+
+SELECT s.StudentID, s.FirstName + ' ' + s.LastName AS [FullName], r.ClubID
+FROM Student s LEFT JOIN Registration r
+ON s.StudentID = r.StudentID 
+
+--3. In ra thông tin tham câu lạc bộ của các sv
+--Output: mã sv, tên sv, mã clb, tên clb, joindate
+SELECT * FROM Student s JOIN Registration r
+		 ON s.StudentID = r.StudentID
+		 JOIN Club c ON r.ClubID = c.ClubID
+
+SELECT s.StudentID, s.LastName, c.ClubID, c.ClubName, r.JoinedDate
+FROM Student s LEFT JOIN Registration r
+		 ON s.StudentID = r.StudentID
+		 JOIN Club c ON r.ClubID = c.ClubID
+--vấn đề lớn: mất sv4 sv5, mất luôn cả clb FCode, FEV
+SELECT s.StudentID, s.LastName, c.ClubID, c.ClubName, r.JoinedDate
+FROM Student s, Registration r, Club c
+WHERE s.StudentID = r.StudentID AND r.ClubID = c.ClubID
+--viết kiểu này không lấy được phần hụt, chỉ bám trên common field
+
+--ghép và in ra, thằng nào không bằng, hụt
+
+SELECT s.StudentID, s.LastName, c.ClubID, c.ClubName, r.JoinedDate
+FROM Student s FULL JOIN Registration r
+		 ON s.StudentID = r.StudentID
+		 FULL JOIN Club c ON r.ClubID = c.ClubID --11
+
+-- BTVN
+-- 1. Đếm số clb mà sv đã tham gia
+--output: mã sv, tên sv, số clb tham gia
+
+--2. Sinh viên SE1 tham gia mấy clb?
+--output: mã sv, tên sv, số clb-tham-gia
+
+--3. Sv nào tham gia nhiều clb nhất ???
+
+--4. CLB Cộng đồng sinh viên tình nguyện có những sinh viên nào tham gia (gián tiếp)
+--Không dùng sub cũng được, nhớ là không hỏi SiTi à nhen
+-- dùng sub cũng oke
+
+--5. Mỗi clb có bao nhiêu thành viên 
+--output: mã clb, tên clb, số thành viên 
+
+--6. CLB nào đông member nhất
+--Output: mã clb, tên clb, số thành viên
+
+--7. CLB Siti và CSG có bao nhiêu member. Đếm riêng từng clb
+--Output: mã clb, tên clb, số thành viên (2 dòng) 
+
+--8. Có tổng cộng bao nhiêu lượt sinh viên tham gia clb
 

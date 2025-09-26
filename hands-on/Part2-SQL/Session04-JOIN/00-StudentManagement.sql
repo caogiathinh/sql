@@ -1,15 +1,15 @@
-﻿DROP DATABASE StudentManagement
+﻿--DROP DATABASE StudentManagement
 
 CREATE DATABASE StudentManagement
 
 USE StudentManagement
 
-CREATE TABLE Major
-(
-	MajorID char(2) PRIMARY KEY,         -- PK Primary Key - Khóa chính
-	MajorName varchar(30),
-	Hotline varchar(11)
-)
+--CREATE TABLE Major
+--(
+--	MajorID char(2) PRIMARY KEY,         -- PK Primary Key - Khóa chính
+--	MajorName varchar(30),
+--	Hotline varchar(11)
+--)
 
 INSERT INTO Major VALUES('SE', 'Software Engineering', '090x')
 INSERT INTO Major VALUES('IA', 'Information Assurance', '091x')
@@ -20,15 +20,15 @@ INSERT INTO Major VALUES('KR', 'Korean', '094x')
 SELECT * FROM Major
 
 --DROP TABLE Student
-CREATE TABLE Student
-(
-	StudentID char(8) PRIMARY KEY,          -- PK Primary Key - Khóa chính
-	LastName nvarchar(30),
-	FirstName nvarchar(10),
-	DOB date,
-	Address nvarchar(50), 
-	MajorID char(2) REFERENCES Major(MajorID)  -- FK Foreign Key - Khóa ngoại
-)
+--CREATE TABLE Student
+--(
+--	StudentID char(8) PRIMARY KEY,          -- PK Primary Key - Khóa chính
+--	LastName nvarchar(30),
+--	FirstName nvarchar(10),
+--	DOB date,
+--	Address nvarchar(50), 
+--	MajorID char(2) REFERENCES Major(MajorID)  -- FK Foreign Key - Khóa ngoại
+--)
 
 INSERT INTO Student(StudentID, LastName, FirstName, MajorID) VALUES('SE1', N'Nguyễn', N'Một', 'SE');
 INSERT INTO Student(StudentID, LastName, FirstName, MajorID) VALUES('SE2', N'Lê', N'Hai', 'SE');
