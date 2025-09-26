@@ -21,8 +21,10 @@ sql/
     │   │   ├── 03-All-ANY.sql
     │   ├── Session04-JOIN/
     │   │   ├── 01-Cartesian.sql
+    |   |   ├── 02-InnerJoin.sql    
     └── Part5-NF/
         ├── 01-noNF.sql
+        
 ```
 
 ### Example `.sql` Files
@@ -35,6 +37,8 @@ sql/
 - `Session01-BasicSelect/08-SELECT LIKE.sql`: Pattern matching with LIKE.
 - `Session02-SubQuery/03-All-ANY.sql`: Subquery examples with ALL/ANY.
 - `Session04-JOIN/01-Cartesian.sql`: Demonstrates Cartesian joins.
+- `Session04-JOIN/02-InnerJoin.sql`: Demonstrates Inner joins.
+
 
 **Part5-NF:** Focuses on database normalization forms.
 - `01-noNF.sql`: Example of a table design with no normalization.
