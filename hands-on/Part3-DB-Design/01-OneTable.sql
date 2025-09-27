@@ -121,3 +121,10 @@ CREATE TABLE StudentV4
 INSERT INTO StudentV4 VALUES('SE123456', N'Nguyễn', N'An', '2003-1-1', N'...TP.Hồ Chí Minh');--ĐƯA HẾT VÀO CÁC CỘT, SV FULL KO CHE THÔNG TIN
 SELECT * FROM StudentV4
 
+--GENERATE TỪ ERD TRONG TOOL THIẾT KẾ
+CREATE TABLE StudentV5 (
+  StudentID char(8) NOT NULL, 
+  LastName  varchar(50) NOT NULL, 
+  FirstName varchar(10) NOT NULL, 
+  PRIMARY KEY (StudentID)
+);
