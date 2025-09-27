@@ -25,6 +25,8 @@ sql/
     │   │   ├── 01-Cartesian.sql
     |   |   ├── 02-InnerJoin.sql    
     |   |   ├── 03-Outer.sql  
+    └── Part4-DesignDatabase/
+        ├── 01-OneTable.sql 
     └── Part5-NF/
         ├── 01-noNF.sql
         
@@ -44,7 +46,6 @@ sql/
 - `Session04-JOIN/01-Cartesian.sql`: Demonstrates Cartesian joins.
 - `Session04-JOIN/02-InnerJoin.sql`: Demonstrates Inner joins.
 - `Session04-JOIN/03-Outer.sql`: Demonstrates Outer joins.
-
 
 **Part5-NF:** Focuses on database normalization forms.
 - `01-noNF.sql`: Example of a table design with no normalization.
