@@ -47,6 +47,8 @@ sql/
 - `Session04-JOIN/02-InnerJoin.sql`: Demonstrates Inner joins.
 - `Session04-JOIN/03-Outer.sql`: Demonstrates Outer joins.
 
+**Part3-DatabaseDesign** Focuses Database Design, Database concept.
+
 **Part5-NF:** Focuses on database normalization forms.
 - `01-noNF.sql`: Example of a table design with no normalization.
 
