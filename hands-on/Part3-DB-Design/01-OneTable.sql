@@ -127,4 +127,53 @@ CREATE TABLE StudentV5 (
   LastName  varchar(50) NOT NULL, 
   FirstName varchar(10) NOT NULL, 
   PRIMARY KEY (StudentID)
-);
+)
+
+--------------------------------------------
+-- HỌC THÊM VỀ CÁI CONSTRAINTS - TRONG ĐÓ PK CONSTRAINT
+-- Ràng buộc là cách ta/db designer ép cell/cột nào đó value phải ntn 
+-- Đặt ra quy tắc/rule cho việc nhập data
+-- Vì có nhiều quy tắc, nên tránh nhằm lẫn, dễ kiểm soát ta sẽ có qui định 
+-- đặt tên cho các quy tắc , constraint name 
+-- Ví dụ: Má ở nhà có qui định  cho mình
+-- Rule #1: vào sg ráng học thật tốt nha con. Tốt: điểm tb >= 8 && không rớt môn, .. 
+-- Rule #2: Tối đi chơi về nhà sớm. Sớm: trong tối cùng ngày. 
+-- Rule #3: ?? 
+-- tên ràng buộc/quy tắc nội		 dung/cái data dc gài vào.
+--	PK_????/							PRIMARY KEY
+-- Mặc định các DB Engine nó tự đặt tên cho các ràng buộc mà nó thấy khi bạn
+-- gõ lệnh DDL 
+-- DB Engine cho mình cơ chế tự đặt tên RB
+
+CREATE TABLE StudentV6
+(
+	StudentID char(8) NOT NULL, 
+	LastName nvarchar(40) NOT NULL, 
+	FirstName nvarchar(10) NOT NULL,
+	DOB datetime NULL, 
+	Address nvarchar(50) NULL,
+	--PRIMARY KEY(StudentID) -- tự db enigne đặt tên cho rb
+	CONSTRAINT PK_STUDENTS PRIMARY KEY(StudentID)
+)
+
+-- DÂN PRO ĐÔI KHI CÒN LÀM CÁCH SAU: NGƯỜI TÁCH HẴN VIỆC RB KHÓA CHÍNH, KHÓA NGOẠI. 
+-- RA HẲN CẤU TRÚC TABLE, TƯC LÀ CREATE TALBE CHỈ CHỨA TÊN CÂU TRÚC - CỘT - DOMAINS
+-- TẠO TABLE XONG RỒI CHỈNH SỬA TABLE - SỬA CÁI TỦ CHỨ KHÔNG PHẢI QUẦN ÁO TRONG TỦ.
+CREATE TABLE StudentV7
+(
+	StudentID char(8) NOT NULL,
+	LastName nvarchar(40) NOT NULL, 
+	FirstName nvarchar(10) NOT NULL,
+	DOB datetime NULL, 
+	Address nvarchar(50) NULL,
+	--PRIMARY KEY(StudentID) -- tự db enigne đặt tên cho rb
+	--CONSTRAINT PK_STUDENTV7 PRIMARY KEY(StudentID)
+)
+
+ALTER TABLE StudentV7 ADD CONSTRAINT PK_STUDENTV7 PRIMARY KEY(StudentID)
+
+--XÓA 1 RÀNG BUỘC ĐƯỢC KHÔNG, CHO ADD THÌ CHO DROP 
+ALTER TABLE StudentV7 DROP CONSTRAINT PK_STUDENTV7
+
+ALTER TABLE StudentV2 DROP CONSTRAINT PK__StudentV__32C52A79727993FA
+
