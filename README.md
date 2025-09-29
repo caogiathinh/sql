@@ -27,6 +27,7 @@ sql/
     |   |   ├── 03-Outer.sql  
     └── Part4-DesignDatabase/
         ├── 01-OneTable.sql 
+        ├── 02-TwoTables.1N.Relationship.sql
     └── Part5-NF/
         ├── 01-noNF.sql
         
@@ -48,6 +49,9 @@ sql/
 - `Session04-JOIN/03-Outer.sql`: Demonstrates Outer joins.
 
 **Part3-DatabaseDesign** Focuses Database Design, Database concept.
+- `01-OneTable.sql`: One table design.
+- `02-TwoTables.1N.Relationship.sql`: Two table design with 1-N Relationship
+
 
 **Part5-NF:** Focuses on database normalization forms.
 - `01-noNF.sql`: Example of a table design with no normalization.
