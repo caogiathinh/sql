@@ -30,6 +30,8 @@ sql/
         ├── 01-OneTable.Constraints.sql
         ├── 01-OneTable.Generated.sql
         ├── 02-TwoTables.1N.Relationship.sql
+        ├── 02-TwoTables.1N.Relationship.Generated.sql
+        ├── 02-TwoTables.1N.Relationship.vpp
     └── Part5-NF/
         ├── 01-noNF.sql
         
