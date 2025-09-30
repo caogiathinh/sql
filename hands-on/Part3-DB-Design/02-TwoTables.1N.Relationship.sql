@@ -179,3 +179,7 @@ DELETE FROM MajorV3 WHERE MajorID = 'AH'
 UPDATE StudentV3 SET MajorID = 'SE' --TOÀN TRƯỜNG HỌC SE TOANG
 UPDATE StudentV3 SET MajorID = 'SE' WHERE MajorID IS NULL
 
+--cascade (hiệu ứng domino), null, default, no action là những lựa chọn khi update hay delete dữ liệu
+--update thì thường là cascade
+--delete thì thường là null 
+
