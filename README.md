@@ -27,6 +27,8 @@ sql/
     |   |   ├── 03-Outer.sql  
     └── Part4-DesignDatabase/
         ├── 01-OneTable.sql 
+        ├── 01-OneTable.Constraints.sql
+        ├── 01-OneTable.Generated.sql
         ├── 02-TwoTables.1N.Relationship.sql
     └── Part5-NF/
         ├── 01-noNF.sql
