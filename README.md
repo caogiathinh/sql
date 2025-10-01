@@ -2,7 +2,7 @@
 
 Welcome to the **SQL Practice Repository**! This repository contains hands-on SQL exercises organized into parts, each focusing on different SQL concepts and practices.
 
-## Folder Structure
+## Project Folder Structure
 
 ```
 sql/
@@ -56,6 +56,9 @@ sql/
 │   ├── Part4-Programming/
 │   ├── Part5-NF/
 │   │   ├── 01-noNF.sql
+├── sample-db/
+│   └── Microsoft.Northwind/
+
 ```
 
 ### Example `.sql` Files
