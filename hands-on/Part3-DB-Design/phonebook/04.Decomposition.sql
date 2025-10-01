@@ -77,5 +77,7 @@ SELECT * FROM PhoneBookV4_1
 -- CÓ NÊN CHO NGƯỜI TA GÕ TAY HAY KO, KO VÌ NÓ SẼ GÂY NÊN KO NHẤT QUÁN !!! 
 -- TỐT NHẤT CHO CHỌN, CHỌN PHẢI TỪ CÁI CÓ SẴN, SẴN TỨC LÀ TỪ TABLE KHÁC. 
 
+-- KO CHO GÕ LUNG TUNG, GÕ TRONG CÁI ĐÃ CÓ - DÍNH 2 THỨ, TABLE KHÁC (ĐÃ NÓI TRÊN)
+--						FK ĐỂ ĐẢM BẢO CHỌN ĐÚNG TRONG ĐÓ THÔI 
 
 
