@@ -49,3 +49,33 @@ INSERT INTO PhoneBookV4_1 VALUES('090x', 'Work', N'binhle')
 INSERT INTO PhoneBookV4_1 VALUES('091x', 'Cell', N'binhle')
 INSERT INTO PhoneBookV4_1 VALUES('092x', 'Cell', N'binhle')
 
+-- PHÂN TÍCH: 
+-- **ƯU ĐIỂM: 
+-- Cout ngon, group by theo nicl, theo loại phone
+-- where theo loại phone ngon 
+
+-- **NHƯỢC ĐIỂM:
+-- Tính không nhất quán (inconsistency) của loại phone: có người gõ: Cell, cell, CELL éo sợ vì cùng 1 kiểu
+--																     gõ thêm: Di động, DĐ -> cả đám này đều là 1
+--																	 máy hiểu là khác nhau
+-- query liệt kê các số di động của tất cả mọi người, toang khi WHERE 
+-- vì éo biết được có bao nhiêu loại chữ biểu diễn cho DI ĐỘNG
+INSERT INTO PhoneBookV4_1 VALUES('093x', 'MOBILE', N'binhle')
+INSERT INTO PhoneBookV4_1 VALUES('093x', 'Sugar Daddy', N'binhle')
+
+-- liệt kê các số di động của bạn binhle
+SELECT * FROM PhoneBookV4_1
+		 WHERE PhoneType = 'Cell' OR PhoneType = 'Cell' OR PhoneType = 'DĐ'
+
+SELECT * FROM PhoneBookV4_1
+		 WHERE PhoneType IN('cell', 'Cell', 'DĐ')
+		 -- mày tính IN cái tập hợp này đến bao giờ khi người ta gõ từ khác. 
+		 -- cùng biểu diễn khái niệm di động
+
+-- QUY TẮC QUAN TRỌNG CÓ NHỮNG LOẠI DỮ LIỆU BIẾT TRƯỚC LÀ NHIỀU, NHƯNG HỮU HẠN VALUE ĐỂ NHẬP 
+-- TỈNH THÀNH NHIỀU NHƯNG CHỈ 63, QUỐC GIA NHIỀU NHƯNG CHỈ 239, CHÂU LỤC NHIỀU NHƯNG CHỈ 56, TRƯỜNG THPT, 500 TRƯỜNG
+-- CÓ NÊN CHO NGƯỜI TA GÕ TAY HAY KO, KO VÌ NÓ SẼ GÂY NÊN KO NHẤT QUÁN !!! 
+-- TỐT NHẤT CHO CHỌN, CHỌN PHẢI TỪ CÁI CÓ SẴN, SẴN TỨC LÀ TỪ TABLE KHÁC. 
+
+
+
