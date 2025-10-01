@@ -55,3 +55,4 @@ INSERT INTO PhoneBookV1 VALUES(N'dungpham', '090x-091x - 092x')
 -- KO CHƠI GOM VALUE TRONG 1 CELL 
 -- 2 CHIẾN LƯỢC FIX:
 -- CHIỀU NGANG, CHIỀU DỌC: THÊM CỘT, THÊM DÒNG
+-- một cell có nhiều value bên trong - đa trị 
