@@ -53,8 +53,10 @@ sql/
 │   │   │   ├── 01-FirstDesign.sql
 │   │   │   ├── 02.HorizontalDesign.sql
 │   │   │   ├── 03.VerticalDesign.sql
+│   │   │   ├── 04.Decomposition.sql
+│   │   │   ├── 05.NormalizationForm.sql  
 │   ├── Part4-Programming/
-│   ├── Part5-NF/
+│   ├── 05-NormalizationForm/
 │   │   ├── 01-noNF.sql
 ├── sample-db/
 │   └── Microsoft.Northwind/
@@ -92,6 +94,8 @@ sql/
 - `phonebook/01-FirstDesign.sql`: First phonebook table design.
 - `phonebook/02.HorizontalDesign.sql`: Horizontal phonebook design.
 - `phonebook/03.VerticalDesign.sql`: Vertical phonebook design.
+- `phonebook/04.Decomposition.sql`: Decomposed phonebook design.
+- `phonebook/05.NormalizationForm.sql`: Phonebook design with normalization forms.
 
 **Part5-NF:** Focuses on database normalization forms.
 - `01-noNF.sql`: Example of a table design with no normalization.
