@@ -112,6 +112,11 @@ SELECT * FROM PhoneBookV4_1
 
 -- ======================================
 
+
+SELECT * FROM PhoneTypeV5
+SELECT * FROM PhoneBookV5
+SELECT * FROM PersonV5
+
 CREATE TABLE PersonV5
 (
 	Nick nvarchar(30) PRIMARY KEY, --CÒN CẦN BÀN THÊM VỀ PK HERE/PERFORMANCE
@@ -133,4 +138,23 @@ CREATE TABLE PhoneBookV5
 	CONSTRAINT PK_PHONEBOOKV5 PRIMARY KEY(Phone)
 	-- loại gì của ai, không gõ lung tung
 )
+
+INSERT INTO PhoneTypeV5 VALUES(N'Di động')
+INSERT INTO PhoneTypeV5 VALUES(N'Nhà để bàn')
+INSERT INTO PhoneTypeV5 VALUES(N'Công ty')
+INSERT INTO PhoneTypeV5 VALUES(N'Cha dượng ngọt ngào')
+ 
+INSERT INTO PersonV5 VALUES(N'thinhcg', 'Student', 'OU HCMC')
+INSERT INTO PersonV5 VALUES(N'annguyen', 'Student', 'OU HCMC')
+INSERT INTO PersonV5 VALUES(N'binhle', 'Student', 'OU HCMC')
+
+INSERT INTO PhoneBookV5 VALUES('098x', N'Di động', N'thinhcg')
+INSERT INTO PhoneBookV5 VALUES('092x', N'Nhà để bàn', N'annguyen')
+INSERT INTO PhoneBookV5 VALUES('094x', N'Cha dượng ngọt ngào', N'binhle')
+INSERT INTO PhoneBookV5 VALUES('091x', N'Suger daddy', N'binhle') --không có trong table Phone type không cho phép INSERT vào table PhoneBook 
+INSERT INTO PhoneBookV5 VALUES('093x', N'Công ty', N'binhle')
+
+
+
+
 
