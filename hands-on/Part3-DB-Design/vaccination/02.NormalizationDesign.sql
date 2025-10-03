@@ -115,3 +115,72 @@ FROM PersonV4 p LEFT JOIN VaccinationV4 v
  
  INSERT INTO VaccinationV4 VALUES(2, GETDATE(), N'AZ', NULL, NULL, '00000000001')
  ---nhưng còn cần lookup table
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+--* PHÂN TÍCH 
+-- CỘT TÊN LÀ VACCINE cho phép gõ các giá trị tên VC một cách tự do -> inconsistency 
+-- AZ, Astra, AstraZeneca, Astra Zeneca
+-- >>>>>> có mùi của drop down, combo box >>> Lookup Table
+-- ko cho gõ mà cho chọn từ danh sách có sẵn 
+-- tham chiếu từ danh sách có sẵn
+-- Vaccine phải tách thành table CHA, TABLE 1, ĐÁM N 
+-- PHẢI REFRENCES VỀ 
+CREATE TABLE PersonV5
+(
+	ID char(11) PRIMARY KEY, 
+	LastName nvarchar(30),
+	FirstName nvarchar(10), --sort, FullName là sort theo họ 
+	Phone varchar(11) NOT NULL UNIQUE, --constraint, cấm trùng nhưng không phải là PK 
+									   --key ứng viên, candidate key. 
+)
+
+INSERT INTO PersonV5 VALUES('00000000001', N'NGUYỄN', N'AN', '090x')
+INSERT INTO PersonV5 VALUES('00000000002', N'BÌNH', N'LÊ', '091x')
+
+CREATE TABLE VaccineV5
+(
+	VaccineName varchar(30) PRIMARY KEY,
+	--hãng sản xuất, địa chỉ hãng, thông tin lâm sàng... 
+)
+
+INSERT INTO VaccineV5 VALUES('AstraZeneca')
+INSERT INTO VaccineV5 VALUES('Pfizer')
+INSERT INTO VaccineV5 VALUES('Verocell')
+INSERT INTO VaccineV5 VALUES('Moderna')
+
+--PRIMARY KEY MÀ LÀ varchar() LÀM GIẢM HIỆU NĂNG THỰC THI QUERY
+--CHẠY CHẬM. THƯỜNG NGƯỜI TA SẼ CHỌN PK LÀ CON SỐ LÀ TỐT NHẤT, TỐT NHÌ THÌ CHAR
+--SẼ GIẢNG 1 BUỔI RIÊNG VỀ PRIMARY KEY (PK, FK, CK, SPK, NK, SRK-AK)
+
+CREATE TABLE VaccinationV5
+(
+	--Dose nvarchar(100), 
+	--tách cột
+	SEQ int IDENTITY PRIMARY KEY, -- CỨ TĂNG MÃI MÃI ĐI, 2 TỶ MẤY LẦN CHÍCH 
+	Dose int, --liều chích số 1,2 có thể lặp lại cho mỗi người, ko thể là key
+	InjDate datetime, --giờ chích
+	Vaccine varchar(30) REFERENCES VaccineV5(VaccineName),
+	Lot nvarchar(20),
+	[Location] nvarchar(50), --nơi chích bản chất là COMPOSITE, TÁCH THÀNH CỘT CITY, QUẬN/HUYỆN
+							 --lại là lookdup để không gõ lung tung thống kế từng đơn vị
+	PersonID char(11) REFERENCES PersonV5(ID),
+	--FOREIGN KEY (Vaccine) REFERENCES VaccineV5(VaccineName),
+	--CONSTRAINT FK_VCN_VC FOREIGN KEY (Vaccine) REFERENCES VaccineV5(VaccineName)
+)
+
+INSERT INTO VaccinationV5 VALUES(1, GETDATE(), 'AstraZeneca', NULL, NULL, '00000000001') -- ok 
+INSERT INTO VaccinationV5 VALUES(2, '2021-12-20', 'AstraZeneca', NULL, NULL, '00000000001') -- ok
+INSERT INTO VaccinationV5 VALUES(3, '2021-12-20', 'AZ', NULL, NULL, '00000000001') --THẤT BẠI nhưng SEQ vẫn tự tăng thành 3. 
+INSERT INTO VaccinationV5 VALUES(1, '2021-12-20', 'Verocell', NULL, NULL, '00000000002')
+
+SELECT * FROM PersonV5 
+SELECT * FROM VaccineV5
+SELECT * FROM VaccinationV5
+
+
+-- CHỐT HẠ: TÁCH ĐA TRỊ HAY COMPOSITE DỰA TRÊN NHU CẦU THỐNG KÊ,
+--			NẾU CÓ CỦA DỮ LIỆU TA LƯU TRỮ!!!
+--			GOM BẢNG -> TÌM ĐA TRỊ, TÌM COMPOSITE, TÌM LOOKUP TÁCH THEO YÊU CẦU
+ 
+
