@@ -55,6 +55,9 @@ sql/
 │   │   │   ├── 03.VerticalDesign.sql
 │   │   │   ├── 04.Decomposition.sql
 │   │   │   ├── 05.NormalizationForm.sql  
+│   │   │   ├── NormalizationForms.png  
+│   │   ├── phonebook/
+│   │   │   ├── 01-FirstDesign.sql 
 │   ├── Part4-Programming/
 │   ├── 05-NormalizationForm/
 │   │   ├── 01-noNF.sql
