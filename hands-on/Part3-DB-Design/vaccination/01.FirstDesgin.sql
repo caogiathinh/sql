@@ -114,3 +114,4 @@ FROM PersonV4 p LEFT JOIN VaccinationV4 v
 										   --BÌNH CÓ 1 DÒNG KHA KHÁ NULL  
  
  INSERT INTO VaccinationV4 VALUES(2, GETDATE(), N'AZ', NULL, NULL, '00000000001')
+ ---nhưng còn cần lookup table
