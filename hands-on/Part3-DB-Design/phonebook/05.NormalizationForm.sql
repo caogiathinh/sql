@@ -154,7 +154,9 @@ INSERT INTO PhoneBookV5 VALUES('094x', N'Cha dượng ngọt ngào', N'binhle')
 INSERT INTO PhoneBookV5 VALUES('091x', N'Suger daddy', N'binhle') --không có trong table Phone type không cho phép INSERT vào table PhoneBook 
 INSERT INTO PhoneBookV5 VALUES('093x', N'Công ty', N'binhle')
 
+SELECT * FROM PersonV5
+SELECT * FROM PhoneTypeV5 
+SELECT * FROM PhoneBookV5
 
-
-
+  
 
