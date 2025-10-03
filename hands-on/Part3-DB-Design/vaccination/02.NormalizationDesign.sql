@@ -178,9 +178,40 @@ SELECT * FROM PersonV5
 SELECT * FROM VaccineV5
 SELECT * FROM VaccinationV5
 
+-- THỐNG KÊ ĐƯỢC NHỮNG GÌ ?
+-- 1. Có bao nhiêu mũi vaccine AZ đã đc chích (chích bao nhiu nhát)
+-- OUTPUT: loại vaccine, tổng số mũi đã chích 
+
+-- 2. Ngày x có bao nhiêu mũi đã được chích
+
+-- 3. Thống kê số mũi chích của mỗi cá nhân 
+-- OUPUT: CCCD, Tên (Full), di động, số mũi đã chích (0, 1, 2, 3)
+
+-- 4. In ra thông tin chích của mỗi cá nhân
+-- OUPUT: CCCD, Tên (Full), di động, số mũi đã chích (0, 1, 2, 3), MÀU SẮC
+
+-- 5. Có bao nhiêu công dân đã chích ít nhất 1 mũi vaccine
+
+-- 6. Những công dân nào chưa chích vaccine mũi nào cả
+-- Output: CCCD, Tên
+
+-- 7. Công dân có CCCD X đã chích những mũi nào
+-- Output: CCCD, Tên, Thông tin chích (in gộp + chuỗi, tái nhập composite)
+
+-- 8. Thống kế số mũi vaccine đã chích của mỗi loại vaccine 
 
 -- CHỐT HẠ: TÁCH ĐA TRỊ HAY COMPOSITE DỰA TRÊN NHU CẦU THỐNG KÊ,
 --			NẾU CÓ CỦA DỮ LIỆU TA LƯU TRỮ!!!
 --			GOM BẢNG -> TÌM ĐA TRỊ, TÌM COMPOSITE, TÌM LOOKUP TÁCH THEO YÊU CẦU
- 
+ SELECT v.VaccineName, COUNT(*) FROM VaccineV5 v LEFT JOIN VaccinationV5 vc
+					ON v.VaccineName = vc.Vaccine
+					GROUP BY v.VaccineName 
+					-- gần đúng thoi, coutnt(*) toang cho thằng 
+					-- chơi hệ LEFT do có 1 dòng Pfizer chủ yếu null 
+					-- do chưa ai chích, NHỚ COUNT(*) KHÁC COUNT(NULL) 
+ SELECT v.VaccineName, COUNT(vc.Vaccine) FROM VaccineV5 v LEFT JOIN VaccinationV5 vc
+					ON v.VaccineName = vc.Vaccine
+					--WHERE DATE CHÍCH LÀ THỐNG KÊ THEO NGÀY 
+					--QUẬN HUYỆN NỮA LÀ THEO TỈNH, HUYỆN
+					GROUP BY v.VaccineName 
 
