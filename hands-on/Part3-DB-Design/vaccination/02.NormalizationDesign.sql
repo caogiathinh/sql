@@ -214,4 +214,3 @@ SELECT * FROM VaccinationV5
 					--WHERE DATE CHÍCH LÀ THỐNG KÊ THEO NGÀY 
 					--QUẬN HUYỆN NỮA LÀ THEO TỈNH, HUYỆN
 					GROUP BY v.VaccineName 
-
