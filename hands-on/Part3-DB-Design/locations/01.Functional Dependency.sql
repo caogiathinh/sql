@@ -104,4 +104,72 @@ SELECT * FROM District
 --TÁCH THẲNG VẾ TRÁI VÀ PHẢI, RA TABLE KHÁC !!!, TÁCH XONG PHẢI FK CHO PHẦN
 --CÒN LẠI
 
+--SAU KHI TÁCH CÓ TRONG TAY 3 TABLE
+--PROVINCE( PName)
 
+--	DISTRICT (DName, PName(FK lên trên))
+
+--     WARD (WName phường nào, quận nào DName FK lên Quận)
+
+-- GIẢI PHÁP HƠI BỊ DỞ 1 CHÚT CHO CÁI HUYỆN CHÂU THÀNH CHO CÁC TỈNH MIỀN TÂY !!!! TA SẼ LÀM SAU
+-- DÙNG NATURAL KEY, KEY TỰ NHIÊN 
+-- DÙNG KEY TỰ GÁN, TỰ TĂNG, KEY THAY THẾ, KEY GIẢ (SURROGATE KEY/ARTIFICIAL KEY)
+
+--PHIÊN BẢN ĐẸP NHƯNG VẪN CÒN CHÚT CHÂU THÀNH 
+DROP TABLE Province
+DROP TABLE District
+
+CREATE TABLE Province
+(
+	PName nvarchar(30) PRIMARY KEY,
+)
+
+INSERT INTO Province SELECT DISTINCT Province FROM Locations
+SELECT * FROM Province
+
+CREATE TABLE District
+(
+	DName nvarchar(30) NOT NULL, --HONG CÓ 2 CHÂU THÀNH CỦA CÁC TỈNH MIỀN TÂY
+	--và thuộc về thành phố nào vậy
+	PName nvarchar(30) NOT NULL REFERENCES Province(PName),
+						--THAM CHIẾU ĐỂ KHÔNG NHẬP TỈNH KHÔNG TỒN TẠI, TỈNH AHIHI
+	PRIMARY KEY(DName, PName)
+)
+
+INSERT INTO District
+SELECT District, Province FROM Locations
+
+SELECT * FROM Locations
+
+SELECT DISTINCT District, Province FROM Locations ORDER BY District
+--699 quận trong đó chứa rất nhiều Châu thành của 6 tỉnh miền tây
+INSERT INTO District 
+	SELECT DISTINCT District, Province 
+	FROM Locations ORDER BY District
+
+SELECT * FROM District
+
+--hỏi thử thành phố hồ chí minh có những quận huyện nào ?
+SELECT DName FROM District WHERE PName = N'Thành phố Hồ Chí Minh' 
+SELECT DName FROM District WHERE PName = N'Tỉnh Long An' 
+
+
+--THÀNH PHẦN ĐÔNG NHẤT LÀ PHƯỜNG/XÃ, CÓ 10581 DÒNG 
+--ỨNG VỚI VÔ SỐ LẶP LẠI CÁC QUẬN, FK. 
+--xã có trùng tên k??
+CREATE TABLE Ward
+(
+	WName nvarchar(30), 
+	--xã phường ơi, ở quận nào ?
+	DName nvarchar(30) --REFERENCES District(PName)
+)
+SELECT * FROM Locations --10581 xã/phường có trùng nhay không ??
+SELECT COUNT(DISTINCT Ward) FROM Locations  --đếm trùng xã đếm 1 lần
+										-- 7884, TRÙNG TÊN 30000 TÊN
+SELECT Ward FROM Locations ORDER BY ward 
+
+INSERT INTO Ward SELECT Ward, District FROM Locations
+SELECT * FROM Ward
+
+--CHO TUI XEM CÁC PHƯỜNG CỦA Q1 TPHCM 
+SELECT * FROM Ward WHERE DName = N'Quận 1'
