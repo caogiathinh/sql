@@ -70,3 +70,38 @@ SELECT * FROM Province
 SELECT COUNT(*) FROM Locations --10581 XÃ PHƯỜNG
 SELECT COUNT(Province) FROM Locations 
 SELECT COUNT(DISTINCT Province) FROM Locations 
+
+--TẠO TABLE LOOKUP QUẬN/HUYỆN 
+CREATE TABLE District
+(
+	DName nvarchar(30)
+)
+
+--có bao nhiu quận ở Việt Nam 
+SELECT District FROM Locations -- 10581 quận dc lặp đi lặp lại ứng với 10581 phường khác. 
+
+SELECT COUNT(DISTINCT District) FROM Locations --683, 683 QUẬN KHÁC NHAU 
+-- RẤT CẨN THẬN KHI CHƠI VỚI QUẬN/HUYỆN
+-- TIỀN GIANG, VĨNH LONG, TRÀ VINH, ĐỀU CÓ HUYỆN "CHÂU THÀNH" 
+-- DISTINCT SẼ BỊ HỤT 
+-- BẢNG DISTRICT CHỈ CÓ 1 CHÂU THÀNH, LÁT HỒI !!!
+-- PK CỦA DISTRICT KHÔNG THỂ LÀ TÊN QUẬN/HUYỆN ĐƯỢC 
+-- 
+
+--CHÈN VÀO TABLE QUẬN 
+INSERT INTO District SELECT DISTINCT District FROM Locations
+SELECT * FROM District
+
+--CITY và DISTRICT CÓ SỰ PHỤ THUỘC LẪN NHAU,  TỪ THẰNG NÀY SUY RA ĐƯỢC THẰNG KIA
+--NHÌN QUẬN CÓ THỂ ĐOÁN THÀNH PHỐ (CHIỀU NÀY KHÔNG CHẮC AN TOÀN)
+--								   NHÌN CHÂU THÀNH SAO ĐOÁN ĐƯỢC TỈNH ?? 
+--NHÌN TP ĐOÁN RA QUẬN (HỢP LÝ VỀ SUY LUẬN)
+--							VĨNH LONG -> MANG THÍT, CHÂU THÀNH
+--							SÓC TRĂNG -> ...........CHÂU THÀNH
+
+--FD NÊN ĐỌC LÀ CITY -> DISTRICT
+--TABLE MÀ CHỨA CÁC FD PHỤ THUỘC NGANG GIỮA CÁC CỘT -> SUY NGHĨ TÁCH BẢNG
+--TÁCH THẲNG VẾ TRÁI VÀ PHẢI, RA TABLE KHÁC !!!, TÁCH XONG PHẢI FK CHO PHẦN
+--CÒN LẠI
+
+
