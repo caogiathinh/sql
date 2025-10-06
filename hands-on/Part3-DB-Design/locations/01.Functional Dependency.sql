@@ -173,3 +173,11 @@ SELECT * FROM Ward
 
 --CHO TUI XEM CÁC PHƯỜNG CỦA Q1 TPHCM 
 SELECT * FROM Ward WHERE DName = N'Quận 1'
+
+--huyện Ba Tri của Bến Tre có những xã nào ? 
+--23 xã
+SELECT w.WName, d.DName, d.PName FROM Ward w INNER JOIN 
+					District d ON w.DName = d.DName 
+					WHERE d.DName = N'Huyện Ba Tri'
+					AND   d.PName = N'Tỉnh Bến Tre'
+
