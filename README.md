@@ -98,6 +98,9 @@ sql/
 - `02-TwoTables.1N.Relationship.Generated.sql`: Two tables with 1-N relationship and generated columns.
 - `02-TwoTables.1N.Relationship.sql`: Two table design with 1-N relationship.
 - `locations/01-FunctionalDependency.sql`: First locations table design.
+- `phonebook/01-FirstDesign.sql`: Initial phonebook design.
+- `phonebook/02.HorizontalDesign.sql`: Horizontally partitioned phonebook design.   
+- `phonebook/03.VerticalDesign.sql`: Vertically partitioned phonebook design.
 - `phonebook/04.Decomposition.sql`: Decomposed phonebook design.
 - `phonebook/05.NormalizationForm.sql`: Phonebook design with normalization forms.
 
