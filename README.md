@@ -134,4 +134,4 @@ This repository is licensed under the MIT License.
 
 ---
 
-Happy SQL Learning!
+Happy SQL Learning - Happy Coding!
